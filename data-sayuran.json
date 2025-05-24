@@ -1,0 +1,44 @@
+[
+  {
+    "id_sayuran": 1,
+    "nama": "Kentang",
+    "harga_plan": 20000,
+    "harga": 10000,
+    "gambar": "img/kentang.jpg"
+  },
+  {
+    "id_sayuran": 2,
+    "nama": "Wortel",
+    "harga_plan": 15000,
+    "harga": 12000,
+    "gambar": "img/wortel.jpg"
+  },
+  {
+    "id_sayuran": 3,
+    "nama": "Tomat",
+    "harga_plan": 12000,
+    "harga": 10000,
+    "gambar": "img/tomat.jpg"
+  },
+  {
+    "id_sayuran": 4,
+    "nama": "Bawang",
+    "harga_plan": 25000,
+    "harga": 22000,
+    "gambar": "img/bawang.jpg"
+  },
+  {
+    "id_sayuran": 5,
+    "nama": "Cabe Merah",
+    "harga_plan": 35000,
+    "harga": 30000,
+    "gambar": "img/cabe-merah.jpg"
+  },
+  {
+    "id_sayuran": 6,
+    "nama": "Cabe Hijau",
+    "harga_plan": 39000,
+    "harga": 35000,
+    "gambar": "img/cabai-hijau.jpeg"
+  }
+]

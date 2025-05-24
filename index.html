@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toko Sayur Segar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+     @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 1.2s ease-out forwards;
+  }
+
+  .brandsaya {
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-style: normal;
+    }
+  </style>
+</head>
+<body class="font-sans bg-green-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-gradient-to-r from-green-500 to-lime-500 text-white shadow-lg fixed w-full z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <!-- Brand -->
+      <h1 class="text-2xl md:text-3xl font-bold tracking-wide">Sayur Segar</h1>
+  
+      <!-- Desktop Nav -->
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#produk" class="hover:text-green-100 transition">Produk</a>
+        <a href="#tentang" class="hover:text-green-100 transition">Tentang</a>
+        <a href="#keranjang" class="relative hover:text-green-100 transition" id="linkKeranjang">
+          <i class="fa-solid fa-cart-shopping text-xl"></i>
+          <span id="badgeKeranjang" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+        </a>
+      </nav>
+  
+      <!-- Hamburger Button (Mobile) -->
+      <div class="md:hidden flex items-center">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="menu" class="hidden bg-green-500 md:hidden">
+      <a href="#produk" class="block px-4 py-2 hover:bg-green-600 transition">Produk</a>
+      <a href="#tentang" class="block px-4 py-2 hover:bg-green-600 transition">Tentang</a>
+      <a href="#keranjang" class="block px-4 py-2 hover:bg-green-600 transition">Keranjang</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-[600px] overflow-hidden">
+    <!-- Slider Images -->
+    <div id="slider" class="absolute inset-0 z-0 w-full h-full">
+      <div class="slide bg-cover bg-center w-full h-full absolute transition-opacity duration-1000" style="background-image: url('img/1.jpg'); opacity: 1;"></div>
+      <div class="slide bg-cover bg-center w-full h-full absolute transition-opacity duration-1000" style="background-image: url('img/2.jpg'); opacity: 1;"></div>
+      <div class="slide bg-cover bg-center w-full h-full absolute transition-opacity duration-1000" style="background-image: url('img/3.jpg'); opacity: 1;"></div>
+      <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+    </div>
+  
+    <!-- Konten Hero -->
+    <div class="relative z-10 flex items-center justify-center min-h-screen top-[-100px] px-4 text-center text-white font-[Inter,sans-serif]">
+        <div class="space-y-6 animate-fade-in-up">
+        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-[0_3px_6px_rgba(0,0,0,0.4)] tracking-tight">
+            <span class="bg-gradient-to-r from-lime-300 to-green-500 bg-clip-text text-transparent">Sayur Segar</span> <br>
+            langsung dari <span class="italic">petani</span>
+        </h2>
+        <p class="text-lg md:text-xl max-w-xl mx-auto text-gray-100 drop-shadow-md tracking-wide">
+            Nikmati kesegaran alami setiap hari dengan sayuran pilihan terbaik.
+        </p>
+        <a href="#pesan" class="inline-flex items-center gap-2 bg-gradient-to-r from-green-400 to-lime-500 hover:from-lime-500 hover:to-green-400 px-8 py-3 rounded-full text-lg font-semibold shadow-xl transition-all duration-300 transform hover:scale-105">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+            Pesan Sekarang
+        </a>
+        </div>
+    </div>
+  
+    <!-- Kontrol Slider -->
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+      <button class="slider-control w-4 h-4 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100" data-slide="0"></button>
+      <button class="slider-control w-4 h-4 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100" data-slide="1"></button>
+      <button class="slider-control w-4 h-4 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100" data-slide="2"></button>
+    </div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section id="tentang" class="bg-gradient-to-b from-white to-green-50 py-16 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
+      
+      <!-- Gambar -->
+      <div class="relative animate-fade-in-left">
+        <img src="img/4.jpg" alt="Petani Sayur" class="rounded-3xl shadow-lg w-full">
+      </div>
+
+      <!-- Konten -->
+      <div class="text-center md:text-left space-y-6 animate-fade-in-up">
+        <h3 class="text-3xl font-bold text-green-700 leading-tight">Tentang Kami</h3>
+        <p class="text-gray-700 text-lg">
+          Kami adalah <span class="font-semibold text-green-600">pelaku usaha lokal</span> yang bekerja sama langsung dengan para <span class="font-semibold text-green-600">petani sekitar</span> untuk menyediakan 
+          <span class="font-semibold text-green-600">sayuran segar</span> setiap harinya.<br><br>
+          Dengan mengutamakan <span class="underline decoration-green-400">kualitas</span> dan <span class="underline decoration-green-400">kesegaran</span>, kami berkomitmen memberikan yang terbaik untuk keluarga Anda.
+        </p>
+        <a href="#pesan" class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105">
+          Pesan Sayuran Sekarang
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Produk Unggulan -->
+  <section id="produk" class="py-16 px-6 bg-white">
+    <div class="max-w-7xl mx-auto text-center space-y-6">
+      <h2 class="text-3xl font-bold text-green-700 mb-6 animate-fade-in-up">Produk Unggulan</h2>
+      <p class="text-gray-600 mb-12 animate-fade-in-up">Pilihan sayuran segar terbaik untuk kebutuhan harian Anda.</p>
+
+      <!-- Grid Produk -->
+      <div id="tampung-sayurna" class="grid gap-8 md:grid-cols-3 animate-fade-in-up">
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Form Pemesanan -->
+  <section id="keranjang" class="max-w-4xl mx-auto px-4 py-10">
+    <h3 class="text-2xl font-semibold mb-4 text-center">Formulir Pemesanan</h3>
+    <form class="space-y-4 bg-white p-6 rounded-xl shadow" id="formPesanan">
+      <!-- Item keranjang akan ditambahkan di sini -->
+    </form>
+
+    <div class="mt-4 text-right">
+      <h4 class="text-xl font-bold">Total: Rp <span id="totalSemua">0</span></h4>
+    </div>
+
+
+    <button id="kirimPesanan" type="button" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mt-4">
+      Kirim Pesanan
+    </button>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white p-6 text-center">
+    <p>&copy; 2025 Sayur Segar | Instagram: @sayursegar</p>
+  </footer>
+
+  <script>
+    let current = 0;
+    const slides = $('.slide');
+    const total = slides.length;
+  
+    function showSlide(index) {
+      slides.css('opacity', '0');
+      slides.eq(index).css('opacity', '1');
+      current = index;
+    }
+  
+    function nextSlide() {
+      let next = (current + 1) % total;
+      showSlide(next);
+    }
+  
+    let sliderInterval = setInterval(nextSlide, 5000);
+  
+    // Control manual
+    $('.slider-control').click(function () {
+      clearInterval(sliderInterval);
+      showSlide($(this).data('slide'));
+      sliderInterval = setInterval(nextSlide, 5000);
+    });
+  
+    // Parallax effect
+    $(window).on('scroll', function () {
+      let scroll = $(window).scrollTop();
+      $('#slider').css('transform', `translateY(${scroll * 0.3}px)`);
+    });
+
+    $("#menu-btn").click(function(){
+      $("#menu").slideToggle();
+    });
+
+    $(document).ready(function() {
+      $.getJSON('data-sayuran.json', function(sayurna) {
+        let card = ``;
+        sayurna.forEach(function(items) {
+          const hargaPlan = items.harga_plan ? items.harga_plan : "";
+          const showDiskon = items.harga_plan ? "" : "hidden";   
+          card += `
+          <div class="bg-white rounded-3xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 overflow-hidden group relative">
+            <div class="relative">
+              <img src="${items.gambar}" alt="${items.nama}" class="w-full h-48 object-cover group-hover:brightness-90 transition duration-300">
+              <!-- Diskon Badge -->
+              <div class="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded-full font-bold shadow-md diskon ${showDiskon}">
+                Diskon
+              </div>
+            </div>
+            <div class="p-6 space-y-3">
+              <h3 class="text-2xl font-bold text-green-700 group-hover:text-green-800 transition">${items.nama}</h3>
+              
+              <!-- Harga Sebelum -->
+              <p class="text-sm text-gray-400 line-through cek-harga-plan">
+                Rp.${items.harga_plan ?? ""} /Kg
+              </p>
+
+              <!-- Harga Sekarang -->
+              <p class="text-lg text-green-600 font-semibold">
+                Rp.${items.harga} /Kg
+              </p>
+
+              <button data-id="${items.id_sayuran}" 
+                class="pesan inline-block w-full text-center bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300">
+                <i class="fa-solid fa-basket-shopping"></i> Masukan Keranjang
+              </button>
+            </div>
+          </div>
+          `;
+        })
+        $('#tampung-sayurna').html(card);
+
+        $('.pesan').on('click', function(e) {
+          e.preventDefault();
+
+          const id = $(this).data('id');
+          const data = sayurna.find(item => item.id_sayuran == id);
+
+          const sudahAda = $(`.item-keranjang input[name="id_sayuran"]`).filter(function() {
+            return $(this).val() == id;
+          }).length > 0;
+
+          if (sudahAda) {
+            alert("Sayuran ini sudah dimasukkan ke keranjang.");
+            return;
+          }
+          
+          const keranjang = `
+          <div class="item-keranjang border p-4 rounded-xl shadow-sm bg-gray-50 mb-4">
+            <input type="hidden" name="id_sayuran" value="${data.id_sayuran}" />
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between sm:gap-4 gap-4">
+
+              <div class="flex-1">
+                <h4 class="text-lg font-semibold text-gray-800">Nama</h4>
+                <input 
+                  type="text" 
+                  class="mt-2 w-full p-2 border rounded text-center" 
+                  value="${data.nama}" 
+                  name="nama"
+                  required
+                  readonly
+                />
+              </div>
+
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">/Kg</h4>
+                <input 
+                  type="number" 
+                  class="jumlah mt-2 w-full p-2 border rounded text-center" 
+                  value="1" 
+                  min="1"
+                  name="jumlah"
+                  required 
+                  oninput="updateSubtotal(this); updateTotalSemua();"
+                />
+              </div>
+
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">Harga</h4>
+                <input 
+                  type="number" 
+                  class="harga mt-2 w-full p-2 border rounded text-center bg-gray-100" 
+                  value="${data.harga}"
+                  name="harga"
+                  required
+                  readonly 
+                />
+              </div>
+
+              <div>
+                <h4 class="text-lg font-semibold text-gray-800">Sub Total</h4>
+                <input 
+                  type="number" 
+                  class="subtotal mt-2 w-full p-2 border rounded text-center bg-gray-100" 
+                  value="${data.harga}"
+                  name="subtotal"
+                  required
+                  readonly 
+                />
+              </div>
+
+              <div>
+                <button 
+                  type="button" 
+                  class="text-red-600 hover:text-red-800 font-semibold remove-item mt-4 sm:mt-8"
+                  data-id="${data.id_sayuran}"
+                >
+                  Hapus
+                </button>
+              </div>
+            </div>
+          </div>`;
+
+
+          $('#formPesanan').append(keranjang);
+
+          updateTotalSemua();          
+          updateBadgeKeranjang();
+        });
+
+        $(document).on('click', '.remove-item', function() {
+          $(this).closest('.item-keranjang').remove();
+          updateTotalSemua();
+          updateBadgeKeranjang();
+        });
+
+        $('#kirimPesanan').on('click', function() {
+        let pesan = '*🧾 Struk Pemesanan Sayuran Segar*%0A%0A'; // Header pesan (pakai %0A untuk enter di WhatsApp)
+        let total = 0;
+
+        $('.item-keranjang').each(function(index) {
+            const nama = $(this).find('input[name="nama"]').val();
+            const jumlah = parseInt($(this).find('input[name="jumlah"]').val());
+            const harga = parseInt($(this).find('input[name="harga"]').val());
+            const subtotal = parseInt($(this).find('input[name="subtotal"]').val());
+
+            total += subtotal;
+
+            pesan += `${index + 1}. ${nama}%0A`;
+            pesan += `   Jumlah : ${jumlah} Kg%0A`;
+            pesan += `   Harga  : Rp ${harga.toLocaleString('id-ID')}/Kg%0A`;
+            pesan += `   Subtotal: Rp ${subtotal.toLocaleString('id-ID')}%0A%0A`;
+          });
+
+          pesan += `*Total Bayar: Rp ${total.toLocaleString('id-ID')}*%0A`;
+          pesan += `%0ATerima kasih telah memesan 🙏`;
+
+          // Ganti nomor berikut dengan nomor WhatsApp tujuan (gunakan kode negara, tanpa tanda +)
+          const nomorWa = '6285722477208';
+
+          const linkWa = `https://wa.me/${nomorWa}?text=${pesan}`;
+
+          // Buka link WhatsApp
+          window.open(linkWa, '_blank');
+
+          // Tampilkan konfirmasi jika mau
+          $('#pesanTerkirim').removeClass('hidden');
+        });
+
+
+      });
+    });
+
+    function updateSubtotal(jumlahInput) {
+      const item = $(jumlahInput).closest('.item-keranjang');
+      const harga = parseInt(item.find('.harga').val());
+      const jumlah = parseInt($(jumlahInput).val());
+      const subtotal = harga * jumlah;
+      item.find('.subtotal').val(subtotal);
+
+      updateTotalSemua();
+    }
+
+    function updateTotalSemua() {
+      let total = 0;
+      $('.subtotal').each(function() {
+        const sub = parseInt($(this).val()) || 0;
+        total += sub;
+      });
+      $('#totalSemua').text(total.toLocaleString('id-ID'));
+    }
+
+    function updateBadgeKeranjang() {
+      const jumlahItem = $('.item-keranjang').length;
+      const badge = $('#badgeKeranjang');
+
+      if (jumlahItem > 0) {
+        badge.text(jumlahItem);
+        badge.removeClass('hidden');
+      } else {
+        badge.addClass('hidden');
+      }
+    }
+
+
+  </script>
+</body>
+</html>
